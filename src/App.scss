@@ -1,0 +1,774 @@
+// Color Pallete
+
+$blue: #007bff;
+$blue-light: #007bff10;
+$blue-hover: #007bff30;
+$blue-light-opaque: #eff7ff;
+$blue-mid: #007bff99;
+$pblue: #4c75f2;
+$pblue-light: #4c75f210;
+$pblue-hover: #4c75f230;
+$pblue-light-opaque: #eff7ff;
+$pblue-mid: #4c75f299;
+$indigo: #6610f2;
+$purple: #6f42c1;
+$pink: #e83e8c;
+$cherry: #ff073a;
+$cherry-mid: #ff073a99;
+$cherry-light: #ff073a20;
+$cherry-hover: #ff073a30;
+$cherry-light-opaque: #ffe0e6;
+$red: #dc3545;
+$red-light: #dc354520;
+$red-mid: #dc354599;
+$orange: #fd7e14;
+$orange-mid: #fd7e1499;
+$orange-light: #fd7e1420;
+$orange-hover: #fd7e1430;
+$orange-light-opaque: #ffefe2;
+$yellow: #ffc107;
+$yellow-light: #ffc10720;
+$yellow-hover: #ffc10730;
+$yellow-mid: #ffc10799;
+$yellow-light-opaque: #fff7e0;
+$green: #28a745;
+$green-light: #28a74520;
+$green-hover: #28a74530;
+$green-mid: #28a74599;
+$teal: #20c997;
+$cyan: #17a2b8;
+$white: #fff;
+$gray: #6c757d;
+$gray-light: #6c757d10;
+$gray-light-opaque: #f6f6f7;
+$gray-hover: #6c757d20;
+$gray-mid: #6c757d99;
+$gray-dark: #343a40;
+$gray-opaque: #f1f1f1;
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+$purple: #201aa2dd;
+$purple-light: #201aa220;
+$purple-hover: #201aa230;
+$purple-mid: #201aa299;
+$purple-light-opaque: #e3e2f3;
+$pink: #fb5581;
+$pink-light: #ffa8cb10;
+$pink-hover: #ffa8cb30;
+$pink-mid: #ffa8cb99;
+$brick: #e23028;
+// Dark mode variables
+$dark-m-gray: #161625;
+$dark-mid-subtext: #bdb8ae;
+$dark-m-white: #e1e1e1;
+$dark-m-purple: #7ba1ea;
+$dark-m-blue: #3391ff;
+
+body {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: 'archia';
+  font-size: 24px !important;
+  font-weight: 900;
+}
+
+h2 {
+  font-family: 'archia';
+  font-size: 18px !important;
+  font-weight: 400;
+}
+
+h3 {
+  font-family: 'archia';
+  font-size: 14px !important;
+  font-weight: 400;
+}
+
+h4 {
+  font-family: 'archia';
+  font-size: 13px !important;
+  font-weight: 900;
+}
+
+h5 {
+  font-family: 'archia';
+  font-size: 12px !important;
+  font-weight: 900;
+}
+
+h6 {
+  font-family: 'archia';
+  font-size: 11px !important;
+  font-weight: 600;
+}
+
+
+
+.Home {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-left: 0rem;
+  margin-right: 0rem;
+
+  .home-left,
+  .home-right {
+    display: flex;
+    flex-direction: column;
+    width: 30rem;
+    justify-content: center;
+  }
+
+  .home-left {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
+  .home-right {
+    margin-left: 2.5rem;
+    margin-right: 2.5rem;
+  }
+}
+.height-22 {
+  height: 22px;
+}
+.button {
+  background: $blue-light;
+  border: 0;
+  border-radius: 5px;
+  color: $red;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  font-family: 'archia';
+  font-size: .75rem;
+  font-weight: 900;
+  margin-bottom: .5rem;
+  margin-top: .25rem;
+  outline: none;
+  padding: .5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background .2s ease-in-out;
+
+  svg {
+    padding-right: 6px;
+    stroke-width: 2px;
+    width: 20px;
+  }
+
+
+  &:hover {
+    background: $blue-hover;
+  }
+
+  & > * {
+    align-self: center;
+  }
+}
+#chart , #chart1 {
+  z-index: 10;
+}
+
+.back-button {
+  z-index: 11;
+}
+
+
+.MapExplorer {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+
+  &.stickied {
+    position: sticky !important;
+    top: 0;
+  }
+
+  .header {
+    align-self: flex-start;
+    color: $gray;
+    display: flex;
+    flex-direction: column;
+
+    h1,
+    h6 {
+      margin: 0;
+    }
+
+    h6 {
+      margin-bottom: 2rem;
+      margin-top: .75rem;
+    }
+  }
+
+  .svg-parent {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    margin-top: 4rem;
+    overflow: hidden;
+    width: 90%;
+
+    svg {
+      align-self: center;
+      width: 100%;
+
+      text {
+        fill: $gray;
+        font-family: 'archia';
+        font-size: 10px;
+        font-weight: 600;
+        text-align: right;
+      }
+    }
+  }
+
+  .legend {
+    margin-top: 1em;
+    width: 100%;
+  }
+
+  .map-hover {
+    stroke: #ff073a;
+    stroke-width: 2;
+
+    &.active {
+      stroke: #007bff;
+    }
+
+   
+  }
+
+  .back-button {
+    background: $yellow-light;
+    color: $orange;
+    position: absolute;
+    right: 0;
+    top: 2.75rem;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      background: $yellow-hover;
+    }
+  }
+ 
+  .state-page-button {
+    background: $yellow-light;
+    border-radius: 5px;
+    color: $orange;
+    font-size: .75rem;
+    height: 1.5rem;
+    padding: .45rem;
+    padding-left: .75rem;
+    position: absolute;
+    right: 0;
+    top: -.5rem;
+    transition: all .2s ease-in-out;
+
+    &:hover {
+      background: $yellow-hover;
+    }
+
+    abbr {
+      text-transform: none;
+    }
+
+    svg {
+      height: 12px;
+      margin-left: .25rem;
+      stroke: $orange-mid;
+      stroke-width: 3px;
+      vertical-align: middle;
+      width: 12px;
+    }
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: row;
+    height: 1rem;
+    justify-content: space-between;
+
+    h2 {
+      color: #e23028;
+      font-weight: 900;
+      margin: 0;
+      word-wrap: break-word;
+
+      &.active {
+        color: $blue;
+      }
+
+      
+    }
+
+    h4 {
+      color: $gray-mid;
+      margin: 0;
+      word-wrap: break-word;
+    }
+
+    .district {
+      color: #e23028;
+      line-height: 15px;
+      margin: 0;
+      position: absolute;
+      top: 3rem;
+      width: 5rem;
+
+      &.active {
+        color: $blue;
+      }
+
+      
+    }
+
+    .unknown {
+      font-weight: 600;
+      position: absolute;
+      right: 0;
+      text-align: right;
+      top: 5.5rem;
+      width: 5rem;
+    }
+  }
+
+  
+
+  
+}
+
+
+
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 5rem;
+  margin-top: 5rem;
+
+  & > * {
+    align-self: center;
+    text-align: center;
+  }
+
+  h5 {
+    color: $gray;
+    margin: 0;
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+  }
+
+  img {
+    height: 2rem;
+    width: 2rem;
+  }
+}
+
+
+
+.legend {
+  background: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: archia;
+  justify-content: center;
+  z-index: 101;
+
+  & > * {
+    align-self: center;
+  }
+
+  .legend-left {
+    display: flex;
+    flex-direction: row;
+  }
+
+  select {
+    margin-left: 1rem;
+  }
+
+  h5 {
+    color: $gray;
+    margin: 0;
+    margin-right: .5rem;
+
+    &.is-female {
+      color: $pink;
+    }
+
+    &.is-male {
+      color: $pblue;
+    }
+
+    &.is-local {
+      color: $cherry;
+    }
+
+    &.is-imported {
+      color: $purple;
+    }
+  }
+
+  .circle {
+    background: $gray-mid;
+    border-radius: 50%;
+    height: .8rem;
+    margin-right: .25rem;
+    width: .8rem;
+
+    &.is-female {
+      background: $pink;
+    }
+
+    &.is-male {
+      background: $pblue;
+    }
+
+    &.is-local {
+      background: $cherry;
+    }
+
+    &.is-imported {
+      background: $purple;
+    }
+
+    &.is-in {
+      background: url('/flags/india.png');
+      background-size: cover !important;
+    }
+
+    &.is-uk {
+      background: url('/flags/uk.png');
+      background-size: cover !important;
+    }
+
+    &.is-us {
+      background: url('/flags/usa.png');
+      background-size: cover !important;
+    }
+
+    &.is-th {
+      background: url('/flags/thailand.png');
+      background-size: cover !important;
+    }
+
+    &.is-ph {
+      background: url('/flags/philippines.png');
+      background-size: cover !important;
+    }
+
+    &.is-it {
+      background: url('/flags/italy.png');
+      background-size: cover !important;
+    }
+
+    &.is-ca {
+      background: url('/flags/canada.png');
+      background-size: cover !important;
+    }
+
+    &.is-id {
+      background: url('/flags/indonesia.png');
+      background-size: cover !important;
+    }
+
+    &.is-mm {
+      background: url('/flags/myanmar.png');
+      background-size: cover !important;
+    }
+  }
+}
+
+.header {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  & > * {
+    align-self: center;
+  }
+
+  
+}
+
+.cards-container {
+  margin-left: 2rem;
+  padding: 2rem;
+
+
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+
+    .card {
+      flex: 0 1 calc(33% - 1em);
+      height: 30rem;
+      margin-bottom: 2em;
+
+
+      .charts-header {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: flex-start;
+
+
+        .chart-title {
+          color: #6c757d;
+          font-family: 'archia';
+        //   display: flex;
+        // flex-direction: row;
+          font-size: 1.5rem !important;
+          font-weight: 900;
+          padding: 20px 0;
+          text-transform: uppercase;
+        }
+
+        .chart-buttons {
+          color: #6c757d;
+          font-family: 'archia';
+          display: flex;
+        flex-direction: row;
+          font-size: 1.5rem !important;
+          font-weight: 900;
+          padding: 20px 0;
+          text-transform: uppercase;
+        }
+        .chart-content {
+          height: 100%;
+          width: 100%;
+        }
+
+        .chart-note {
+          color: $gray;
+          font-family: 'archia';
+          font-size: .8rem;
+          height: 50px;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 769px) {
+    margin-left: unset;
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .Home,
+  .State {
+    padding-top: 5rem;
+  }
+
+
+  .dark-mode {
+    .Navbar,
+    .expand {
+      background: #1e1e30 !important;
+    }
+
+  
+  }
+}
+
+
+// Dark Mode
+
+.dark-mode {
+  background: #161625 !important;
+  color: #bdbdbd;
+  transition: background-color .2s ease-out !important;
+
+
+  .switch-wrapper > div {
+    background: #161625 !important;
+  }
+
+  .expand {
+    background: #1e1e30 !important;
+  }
+
+  .State {
+    .header-right {
+      h5 {
+        color: #9673b9bb !important;
+      }
+
+      h2 {
+        color: #9673b9 !important;
+      }
+
+      a {
+        background: #40008050 !important;
+      }
+    }
+  }
+
+  .MapExplorer {
+    #chart1, #chart,
+    #legend {
+      filter: invert(1) hue-rotate(150deg);
+    }
+
+    .legend {
+      background: #161625 !important;
+    }
+
+    .stats {
+      &.is-purple {
+        background: #40008050 !important;
+
+        h1 {
+          color: #9673b9 !important;
+        }
+
+        h5,
+        h6 {
+          color: #9673b9bb !important;
+        }
+
+        svg {
+          stroke: #9673b9 !important;
+        }
+      }
+    }
+  }
+
+  .tab {
+    &.focused {
+      background: #1e1e30 !important;
+      color: #bdbdbd !important;
+    }
+  }
+
+  .pills {
+    button {
+      &.selected {
+        background: #{$yellow}50;
+      }
+    }
+  }
+
+  select {
+    background: #1e1e30 !important;
+    border-color: #1e1e30 !important;
+  }
+
+  input {
+    &.switch {
+      background-color: #161625 !important;
+      border: 2px solid $gray-mid !important;
+
+      &:checked {
+        background-color: #161625 !important;
+
+        &::after {
+          background-color: #cfcfcf !important;
+        }
+      }
+
+      &::after {
+        background-color: #cfcfcf !important;
+      }
+    }
+  }
+
+  .button {
+    &.github {
+      color: #bdbdbd !important;
+
+      svg {
+        stroke: #bdbdbd !important;
+      }
+    }
+  }
+
+  
+
+  
+
+  
+}
+
+// Animation Support
+
+.fadeInUp {
+  animation-duration: .45s;
+  animation-fill-mode: both;
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rotateDownRight {
+  animation-duration: .25s;
+  animation-fill-mode: both;
+  animation-name: rotateDownRight;
+}
+
+@keyframes rotateDownRight {
+  100% {
+    transform: rotate(-90deg);
+  }
+}
+
+.rotateRightDown {
+  animation-duration: .25s;
+  animation-fill-mode: both;
+  animation-name: rotateRightDown;
+}
+
+@keyframes rotateRightDown {
+  0% {
+    transform: rotate(-90deg);
+  }
+}
+
+.fadeOutDown {
+  animation-duration: .45s;
+  animation-fill-mode: both;
+  animation-name: fadeOutDown;
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}

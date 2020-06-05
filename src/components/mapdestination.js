@@ -113,7 +113,7 @@ function MapExplorer({
       <div className="header">
       {/* <h1>Trip Details</h1> */}
         <h2>{currentMap.name} Map (Trip destination)
-        <button className="button back-button" onClick={download_data}>data</button></h2>
+        <button className="button back-button" onClick={download_data}>Download data</button></h2>
         <h6>
           {window.innerWidth <= 769 ? 'Tap' : 'Hover'} over {' '}
            for details of number of Trips.

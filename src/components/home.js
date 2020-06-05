@@ -127,7 +127,7 @@ function Home(props) {
 
     var csv = convertToCSV(jsonObject);
 
-    var exportedFilenmae = 'state_matrix.csv';
+    var exportedFilenmae = 'state_OD_matrix.csv';
 
     var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     if (navigator.msSaveBlob) { // IE 10+
@@ -325,9 +325,6 @@ function Home(props) {
       </div>
       <div >
         
-          {  <DeepDive datasource={datasource} chosen={chosen}/>
-            }
-        
         </div>
        <div className="Home">
          {
@@ -363,8 +360,10 @@ function Home(props) {
               />}
             </div>
 
+            {  
+              <DeepDive datasource={datasource} chosen={chosen}/>
+            }
 
-        {/* </div> */}
       </div>
       <br></br>
       {/* <div className="App"> */}

@@ -158,7 +158,10 @@ function Home(props) {
     // headers.push('collegeName');
     var fam=total_data[0]['families'][0];
     Object.keys(fam).forEach((key)=>{
-      if(key!=='members' && key!=='lat' && key!=='lng' && key!=='landmark')
+      if(
+        key!=='familyID' &&
+      key!=='members' &&
+      key!=='lat' && key!=='lng' && key!=='landmark')
       headers.push(key);
     });
     var mem=fam['members'][0];
@@ -186,11 +189,12 @@ function Home(props) {
             // var array_f=array;
             // console.log({array_f});
              fam=total_data[i]['families'][j];
+            //  console.log(fam);
             // Object.keys(fam).forEach((key)=>{
               for(let ind=0;ind<Object.keys(fam).length;ind++)
               {
                 let key=Object.keys(fam)[ind];
-              if(key!=='members' && key!=='lat' && key!=='lng' && key!=='landmark')
+              if(key!=='familyID' && key!=='members' && key!=='lat' && key!=='lng' && key!=='landmark')
               {
                 array_f.push(fam[key]);
               }
@@ -297,9 +301,9 @@ function Home(props) {
           
            
           
-              <MenuItem   key='0' value={"Default"}>
+              {/* <MenuItem   key='0' value={"Default"}>
                 {"None"}
-              </MenuItem>
+              </MenuItem> */}
               <MenuItem   key='1' value={"Family"}>
                 {"Family"}
               </MenuItem>

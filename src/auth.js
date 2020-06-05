@@ -61,7 +61,7 @@ function Auth(){
             })
         }).catch(function(error){
             console.log(error);
-            alert('SMS failed. Please try again.');
+            alert('SMS failed. Please try again later.');
             window.location.reload(false);
         });
     }

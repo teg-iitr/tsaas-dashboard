@@ -5,6 +5,11 @@ import {Doughnut,Bar} from 'react-chartjs-2';
 import {useState} from 'react';
 import options from './trip_travel_time_options';
 // import html2canvas from "html2canvas";
+import  '../../Buttons.css';
+const buttonClasses = [ 
+  'StartSurveyButton',
+  'StartSurveyButtonBorder'
+]; 
 const pdfConverter = require("jspdf"); 
 function TripTime(props) {
   const[chart_type,setChart_type]=useState(0);
@@ -243,20 +248,60 @@ function download_png() {
   return (
   
         <div id='trip_travel_time' className="charts-header">
-          { chart_type===0  &&
-          <div className="chart-buttons">
-          <button className="button back-button" onClick={download_data}>Csv data</button>
-          <button className="button back-button" onClick={change_chart}>Bar chart</button>
-          <button className="button back-button" onClick={donwload_pdf}>PDF</button>
-          <button className="button back-button" onClick={download_png}>PNG</button>
+           { chart_type===0  &&
+          <div className="StartSurveyButtonContainer">
+          <button className={buttonClasses.join(" ")} style={{
+                  fontWeight: "600",
+                  fontSize: "18px",
+                  textTransform: "none"
+                }} onClick={download_data}>Csv data</button>
+          <button className={buttonClasses.join(" ")}
+          style={{
+            fontWeight: "600",
+            fontSize: "18px",
+            textTransform: "none"
+          }}
+          onClick={change_chart}>Bar chart</button>
+          <button className={buttonClasses.join(" ")}
+          style={{
+            fontWeight: "600",
+            fontSize: "18px",
+            textTransform: "none"
+          }} onClick={donwload_pdf}>PDF</button>
+          <button className={buttonClasses.join(" ")}
+          style={{
+            fontWeight: "600",
+            fontSize: "18px",
+            textTransform: "none"
+          }} onClick={download_png}>PNG</button>
           </div>}
 
        {chart_type===1 &&
-       <div className="chart-buttons">
-        <button className="button back-button" onClick={download_data}>Csv data</button>
-        <button className="button back-button" onClick={change_chart}>Pie chart</button>
-        <button className="button back-button" onClick={donwload_pdf}>PDF</button>
-        <button className="button back-button" onClick={download_png}>PNG</button>
+       <div className="StartSurveyButtonContainer">
+        <button className={buttonClasses.join(" ")}
+        style={{
+          fontWeight: "600",
+          fontSize: "18px",
+          textTransform: "none"
+        }} onClick={download_data}>Csv data</button>
+        <button className={buttonClasses.join(" ")}
+        style={{
+          fontWeight: "600",
+          fontSize: "18px",
+          textTransform: "none"
+        }} onClick={change_chart}>Pie chart</button>
+        <button className={buttonClasses.join(" ")}
+        style={{
+          fontWeight: "600",
+          fontSize: "18px",
+          textTransform: "none"
+        }} onClick={donwload_pdf}>PDF</button>
+        <button className={buttonClasses.join(" ")}
+        style={{
+          fontWeight: "600",
+          fontSize: "18px",
+          textTransform: "none"
+        }} onClick={download_png}>PNG</button>
         
           </div>}
 { chart_type===0 && <div className="chart-title">{props.title} 

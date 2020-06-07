@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import Dropdowns from './dropdowns';
 import './basic_css.css';
 import './App.scss';
-import {Button,InputLabel} from "@material-ui/core";
+import {InputLabel} from "@material-ui/core";
 import TextField from "@material-ui/core/TextField";
 import list from './registeredPersons';
 import firebase from 'firebase';
-
+import  './Buttons.css';
 
 const firebaseConfig = {    
       apiKey: process.env.REACT_APP_PLACES_apiKey,
@@ -21,7 +21,7 @@ const firebaseConfig = {
   
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-
+ 
 
 function Auth(){
 
@@ -29,7 +29,12 @@ function Auth(){
     var [number,setNumber]=useState('');
     var [prefix,setPrefix]=useState('+91');
     var [user,setUser]=useState('');
-    
+ 
+    const buttonClasses = [
+      'StartSurveyButton',
+      'StartSurveyButtonBorder'
+    ];  
+    console.log(buttonClasses);
     function login(){
       
       number=prefix+number;
@@ -115,8 +120,8 @@ function Auth(){
               onChange={(e)=>{setNumber(e.target.value)}}
             />
        </form>
-       <br></br>
-       <Button 
+      
+       {/* <Button 
       style={{
         fontSize: "16px",
         padding: "3px",
@@ -128,7 +133,20 @@ function Auth(){
       component="span"
        onClick={login}>
         {"Get OTP"}
-      </Button>
+      </Button> */}
+      <div className='StartSurveyButtonContainer'>
+              <button
+                className={buttonClasses.join(" ")}
+                style={{
+                  fontWeight: "600",
+                  fontSize: "18px",
+                  textTransform: "none"
+                }}
+                onClick={login}
+              >
+                Get OTP
+              </button>
+            </div>
             <br></br>
             
             <div id="recaptcha"></div>

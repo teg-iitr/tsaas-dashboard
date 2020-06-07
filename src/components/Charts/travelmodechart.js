@@ -4,6 +4,11 @@ import React from 'react';
 import {Doughnut,Bar} from 'react-chartjs-2';
 import {useState} from 'react';
 import options from './travel_mode_options';
+import  '../../Buttons.css';
+const buttonClasses = [ 
+  'StartSurveyButton',
+  'StartSurveyButtonBorder'
+]; 
 // import html2canvas from "html2canvas";
 const pdfConverter = require("jspdf"); 
 function TravelMode(props) {
@@ -226,7 +231,7 @@ function TravelMode(props) {
   const imgData = base64;
 const pdf = new pdfConverter("l", "pt");
 pdf.addImage(imgData, "PNG",100, 80,543,380 );
-pdf.save("chart_image.pdf");  
+pdf.save("chart_image.pdf");   
     }
 function download_png() {
   var base64=chartref.chartInstance.toBase64Image(); 
@@ -236,23 +241,63 @@ function download_png() {
     a.click(); //Downloaded file
 }
 
-    
+
   return (
         <div id='travel_mode' className="charts-header">
           { chart_type===0  &&
-          <div className="chart-buttons">
-          <button className="button back-button" onClick={download_data}>Csv data</button>
-          <button className="button back-button" onClick={change_chart}>Bar chart</button>
-          <button className="button back-button" onClick={donwload_pdf}>PDF</button>
-          <button className="button back-button" onClick={download_png}>PNG</button>
+          <div className="StartSurveyButtonContainer">
+          <button className={buttonClasses.join(" ")} style={{
+                  fontWeight: "600",
+                  fontSize: "18px",
+                  textTransform: "none"
+                }} onClick={download_data}>Csv data</button>
+          <button className={buttonClasses.join(" ")}
+          style={{
+            fontWeight: "600",
+            fontSize: "18px",
+            textTransform: "none"
+          }}
+          onClick={change_chart}>Bar chart</button>
+          <button className={buttonClasses.join(" ")}
+          style={{
+            fontWeight: "600",
+            fontSize: "18px",
+            textTransform: "none"
+          }} onClick={donwload_pdf}>PDF</button>
+          <button className={buttonClasses.join(" ")}
+          style={{
+            fontWeight: "600",
+            fontSize: "18px",
+            textTransform: "none"
+          }} onClick={download_png}>PNG</button>
           </div>}
 
        {chart_type===1 &&
-       <div className="chart-buttons">
-        <button className="button back-button" onClick={download_data}>Csv data</button>
-        <button className="button back-button" onClick={change_chart}>Pie chart</button>
-        <button className="button back-button" onClick={donwload_pdf}>PDF</button>
-        <button className="button back-button" onClick={download_png}>PNG</button>
+       <div className="StartSurveyButtonContainer">
+        <button className={buttonClasses.join(" ")}
+        style={{
+          fontWeight: "600",
+          fontSize: "18px",
+          textTransform: "none"
+        }} onClick={download_data}>Csv data</button>
+        <button className={buttonClasses.join(" ")}
+        style={{
+          fontWeight: "600",
+          fontSize: "18px",
+          textTransform: "none"
+        }} onClick={change_chart}>Pie chart</button>
+        <button className={buttonClasses.join(" ")}
+        style={{
+          fontWeight: "600",
+          fontSize: "18px",
+          textTransform: "none"
+        }} onClick={donwload_pdf}>PDF</button>
+        <button className={buttonClasses.join(" ")}
+        style={{
+          fontWeight: "600",
+          fontSize: "18px",
+          textTransform: "none"
+        }} onClick={download_png}>PNG</button>
         
           </div>}
 

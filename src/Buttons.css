@@ -1,0 +1,210 @@
+.StartSurvey{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    background: #fff;
+    justify-content: center;
+    align-items: center
+}
+
+
+ .StartSurveyButtonContainer{
+   margin-top:7px;
+   display:flex; 
+   flex-flow: row;
+ } 
+.StartSurveyButton{
+  white-space: nowrap;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
+  font-weight: 600;
+  box-sizing: border-box;
+  display: inline-block;
+  position: relative;
+  color: #fff;
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  font-weight: normal;
+  background-color: var(--primary);
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  border-radius: 4px;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.StartSurveyButton:hover, .StartSurveyButton:focus, .StartSurveyButton.StartSurveyButton-hover {
+    color: #fff;
+    background-color: #52a7e0;
+    text-decoration: none;
+    outline: none;
+  }
+  .StartSurveyButton:active, .StartSurveyButton.StartSurveyButton-pressed {
+    color: #124364;
+    background-color: #217dbb;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+  }
+  .StartSurveyButton:disabled, .StartSurveyButton.StartSurveyButton-disabled {
+    background-color: #e6e6e6 !important;
+    border: 1px solid #ccc !important;
+    color: #ccc !important;
+    text-shadow: 0 1px 1px white !important;
+    cursor: not-allowed !important;
+    box-shadow: none !important;
+    pointer-events: none !important;
+    opacity: 0.8 !important;
+  }
+  .StartSurveyButton.StartSurveyButtonBorder {
+    color: #3498db;
+    background: none;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #3498db;
+    line-height: 36px;
+  }
+  .StartSurveyButton.StartSurveyButtonBorder:hover, .StartSurveyButton.StartSurveyButtonBorder.StartSurveyButton-hover {
+    color: #fff;
+    background-color: #3498db;
+  }
+  .StartSurveyButton.StartSurveyButtonBorder:active, .StartSurveyButton.StartSurveyButtonBorder.StartSurveyButton-pressed {
+    color: gray;
+    background-color: #52a7e0;
+  }
+  @media(min-width:500px){
+    .LeftContainer{
+      max-width:40%;
+    }
+    .LeftContainer>div{
+      justify-content: flex-start
+    }
+    .LeftContainerFinishSurvey{
+      width: 50%;
+      /* justify-content: space-between; */
+      padding: 0% !important;
+    }
+    .MobilePageFinishSurvey{
+      display: none !important;
+    }
+    .LeftContainer>p{
+      font-size: 1rem;
+      text-align: left;
+    }
+    .SurveyMonitor{
+      border-radius: 15px;
+      box-shadow: 0 4px 6px -6px rgba(120,120,120,.1), 0 8px 6px -6px rgba(120,120,120,.4);
+      /* height:70% !important;  */
+    
+    }
+    .RightContainerFinishSurvey{
+     display: block;
+      /* justify-content: center !important; */
+    }
+    .MainContainer{
+      width:100%;
+      height: fit-content;
+      /* height:70vh;  */
+      margin-top: 0vh;
+      padding: 0px;
+      flex-direction: row
+    }
+    .MainContainerFinishSurvey{
+      width:90%;
+      /* height:50vh !important; */
+     /* justify-content: space-around !important; */
+      /* margin-top: 25vh; */
+      padding: 0;
+  
+    }
+    .LogoText{font-size: 28px;}
+    .ImgTextWrapper{
+      justify-content: flex-start
+    }
+    .ImgTextWrapper>img{
+      /* width:125px; */
+      width: 84px; 
+      height: 100px
+    }
+    .ImgTextWrapper>p{
+      font-size: 30px   
+     }
+    .LeftContainer>div{
+      width: 100%;
+      display: block;
+      text-align: left;
+    }
+    .LeftContainer>div:nth-of-type(1){
+      width: 100%;
+      display: flex;
+      text-align: left;      
+    }
+  }
+  @media(min-width:800px){
+    .StartSurveyButtonContainer{
+      flex-flow: row
+    }
+    .StartSurveyButtonContainer:nth-child(1){
+      margin-right:15px
+    }
+
+     
+  }
+  @media(min-width:1200px){
+    /* .ImgTextWrapper>p{
+      font-size: 40px   
+     } */
+     .Thank{
+      white-space: nowrap;
+    }
+    .Thank>h3{
+      font-size: 26px;
+    }
+    .Thank>h4{
+      font-size:22px; 
+    }
+    .LeftContainerFinishSurvey{
+      /* width: 40%; */
+    }
+     .LogoText{font-size: 30px}
+  }
+@media(min-width:1440px){
+  .StartSurvey{
+    background-size: cover , cover
+  }
+  .MainContainer{
+    width:95%;
+    /* height:70vh;  */
+    padding: 10px;
+    flex-direction: row;
+  }
+  
+  .MainContainerFinishSurvey{
+    width: 90%;
+  }
+  .Thank>h3{
+    font-size: 28px;
+  }
+  .Thank>h4{
+    font-size:24px; 
+  }
+}
+@media screen and (max-width: 768px) and (min-height: 1024px){
+  .MainContainer{
+     
+  }  
+  .RightContainerFinishSurvey>img{
+    height: 20vh
+  }
+}

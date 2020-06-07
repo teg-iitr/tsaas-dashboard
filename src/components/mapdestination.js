@@ -4,7 +4,11 @@ import {MAP_TYPES ,MAP_META} from '../constants';
 
 import React, {useState ,useCallback} from 'react';
 // import { useEffectOnce } from 'react-use';
-
+import  '../Buttons.css';
+const buttonClasses = [ 
+  'StartSurveyButton',
+  'StartSurveyButtonBorder'
+]; 
 function MapExplorer({
   mapMeta,
   count,
@@ -113,11 +117,25 @@ function MapExplorer({
       <div className="header">
       {/* <h1>Trip Details</h1> */}
         <h2>{currentMap.name} Map (Trip destination)
-        <button className="button back-button" onClick={download_data}>Download data</button></h2>
+        {/* <button className="button back-button" onClick={download_data}>Download data</button> */}
+        </h2>
         <h6>
           {window.innerWidth <= 769 ? 'Tap' : 'Hover'} over {' '}
            for details of number of Trips.
         </h6>
+        <div className='StartSurveyButtonContainer'>
+              <button
+                className={buttonClasses.join(" ")}
+                style={{
+                  fontWeight: "600",
+                  fontSize: "18px",
+                  textTransform: "none"
+                }}
+                onClick={download_data}
+              >
+                Download Data
+              </button>
+            </div>
       </div>
 
 

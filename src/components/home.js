@@ -8,6 +8,7 @@ import {MAP_META} from '../constants';
 import {useState} from 'react';
 import React from 'react';
 // import React from 'react';
+// import classes from '../Buttons.css';
 import PivotTableUI from 'react-pivottable/PivotTableUI';
 import 'react-pivottable/pivottable.css';
 import TableRenderers from 'react-pivottable/TableRenderers';
@@ -19,6 +20,7 @@ import monthlyIncome from './Charts/monthly_income_bracket'
 import fare from './Charts/trip_fare_options';
 import travelDistance from './Charts/trip_distance_options';
 import travelTime from './Charts/trip_travel_time_options';
+import  '../Buttons.css';
 import {
   // aggregatorTemplates,
   // aggregators,
@@ -47,6 +49,10 @@ function Home(props) {
     "travelDistance": sortAs(Object.keys(travelDistance)),
     "travelTime":sortAs(Object.keys(travelTime))  
   }});
+  const buttonClasses = [ 
+    'StartSurveyButton',
+    'StartSurveyButtonBorder'
+  ];  
   // setState({
   //   sorters:{
   //       "age": sortAs(["<4","4-18","18-25","25-40", "40-60",
@@ -272,17 +278,36 @@ function Home(props) {
         <br/>
         <h1>Survey Format : {surveyFormat}  <br/>  Data Source : {datasource}
         <br></br>
-        <div className='back_button'>
+        <div className='StartSurveyButtonContainer'>
           <button 
-            className="button back-button"
-            onClick={download_data}
-            >Download the Whole Dataset (json format)</button>
+            className={buttonClasses.join(" ")}
+            style={{
+              fontWeight: "600",
+              fontSize: "18px",
+              textTransform: "none"
+            }}
+            onClick={download_data} 
+            >
+            
+              Download the Whole Dataset (json format)
+            
+              </button>
           </div>
 
-        <br></br>
+        {/* <br></br> */}
         
-        <div className='back_button'>
-        { <button className="button back-button" onClick={change_analyze}>Create Own Tables/ Plots</button>}
+        <div className='StartSurveyButtonContainer'>
+        { <button className={buttonClasses.join(" ")}
+            style={{
+              fontWeight: "600",
+              fontSize: "18px",
+              textTransform: "none"
+            }} 
+            onClick={change_analyze}>
+            
+              Create Own Tables/ Plots
+          
+              </button>}
       </div>
       { analyze===1 && <div className='back_button'>
         <PivotTableUI
@@ -317,9 +342,14 @@ function Home(props) {
           
             </Select>
       <br></br>
-        <div className='back_button'>
+        <div className='StartSurveyButtonContainer'>
            {chosen===3 && <button 
-            className="button back-button"
+            className={buttonClasses.join(" ")}
+            style={{
+              fontWeight: "600",
+              fontSize: "18px",
+              textTransform: "none"
+            }} 
             onClick={download_state_matrix}
             >Download State wise OD Matrix</button>}
           </div>
@@ -372,14 +402,19 @@ function Home(props) {
       <br></br>
       {/* <div className="App"> */}
           {/* <header className="App-header"> */}
-      <div className='back_button'>
+      <div className='StartSurveyButtonContainer'>
           <button 
-            className="button back-button"
+            className={buttonClasses.join(" ")}
+            style={{
+              fontWeight: "600",
+              fontSize: "18px",
+              textTransform: "none"
+            }} 
             onClick={ props.back}
             >Back</button>
            
           </div>
-            <br></br>
+            {/* <br></br> */}
           {/* </header> */}
           {/* </div> */}
       

@@ -5,9 +5,9 @@ import axios from 'axios';
 import App from './App';
 import {useLocalStorage} from 'react-use';
 import {useEffectOnce} from 'react-use';
-import {Select, MenuItem, InputLabel, Button} from "@material-ui/core";
+import {Select, MenuItem, InputLabel,} from "@material-ui/core";
 import survey_data from './survey_data_new.json';
-
+import  './Buttons.css';
 // import Loading from './loading';
 function Dropdowns(props) {
 
@@ -22,6 +22,10 @@ function Dropdowns(props) {
   const [datasource,setDatasource]=useState('');
   const [surveyFormat,setSurveyFormat]=useState('');
   var user=props.user;
+  const buttonClasses = [ 
+    'StartSurveyButton',
+    'StartSurveyButtonBorder'
+  ];  
   // console.log(process.env);
   useEffectOnce(()=>{
     axios.get(process.env.REACT_APP_PLACES_Survey_Format).then((response)=>{
@@ -134,7 +138,7 @@ function Dropdowns(props) {
         </Select>
         </div>
       <br/>
-      <Button 
+      {/* <Button 
       style={{
         fontSize: "12px",
         padding: "3px",
@@ -146,9 +150,22 @@ function Dropdowns(props) {
       component="span"
        onClick={getData}>
         {"Fetch and Go to Dashboard!"}
-      </Button>
-      <br></br>
-      <Button 
+      </Button> */}
+      <div className='StartSurveyButtonContainer'>
+              <button
+                className={buttonClasses.join(" ")}
+                style={{
+                  fontWeight: "600",
+                  fontSize: "18px",
+                  textTransform: "none"
+                }}
+                onClick={getData}
+              >
+                Fetch and Go to Dashboard!
+              </button>
+            </div>
+      
+      {/* <Button 
       style={{
         fontSize: "12px",
         padding: "3px",
@@ -160,8 +177,20 @@ function Dropdowns(props) {
       component="span"
        onClick={signout}>
         {"Sign Out"}
-      </Button>
-      
+      </Button> */}
+      <div className='StartSurveyButtonContainer'>
+              <button
+                className={buttonClasses.join(" ")}
+                style={{
+                  fontWeight: "600",
+                  fontSize: "18px",
+                  textTransform: "none"
+                }}
+                onClick={signout}
+              >
+                Sign Out
+              </button>
+            </div>
       </header>
 
       

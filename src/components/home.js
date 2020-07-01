@@ -175,9 +175,24 @@ function Home(props) {
       if(key!=='trips' && key!=='created_at' && key!=='memberID')
       headers.push(key);
     });
+     function getmMainMode(mode_types_subArray)
+    {
+      var modes={};
+      for(let i=0;i<mode_types_subArray.length;i++)
+      {
+        if(!modes.hasOwnProperty(mode_types_subArray[i]['modeName']))
+        modes[mode_types_subArray[i]['modeName']]=0;
+        modes[mode_types_subArray[i]['modeName']]++;
+      }
+      if(modes.hasOwnProperty('PT') || modes.hasOwnProperty('Metro') || modes.hasOwnProperty('Bus'))
+      return 'PT';
+      else if(modes.hasOwnProperty('Carpool'))
+      return 'Carpool';
+      
+    }
   var  trip_list = [ 'originPlace', 
               'destinationPlace',  'fare', 'travelDistance',
-             'travelTime', 'mode1', 'mode2', 'mode3', 'mode4', 'mode5', 'mode6'];
+             'travelTime', 'access','egress','main'];
              for(var i=0;i<trip_list.length;i++)
              headers.push(trip_list[i]);
              data.push(headers);
@@ -255,9 +270,37 @@ function Home(props) {
                                   if(od_k_keys!=='originDestinationID' && od_k_keys!=='originLandmark' && od_k_keys!=='originLat' && od_k_keys!=='originLng' && od_k_keys!=='destinationLandmark' && od_k_keys!=='destinationLat' && od_k_keys!=='destinationLng')
                                   array_t.push(od_k[od_k_keys]);
                                 }
-                                for(var m=0;m<trip['mode_types'].length;m++)
+                                // for(var m=0;m<trip['mode_types'].length;m++)
+                                // {
+                                //   array_t.push(trip['mode_types'][m]['modeName']);
+                                // }
+                                if(trip['mode_types'].length==1)
                                 {
-                                  array_t.push(trip['mode_types'][m]['modeName']);
+                                  array_t.push('Walk');
+                                  array_t.push(trip['mode_types'][0]['modeName']);
+                                  array_t.push('Walk');
+                                }
+                                else if(trip['mode_types'].length==2)
+                                {
+                                  array_t.push(trip['mode_types'][0]['modeName']);
+                                  array_t.push(trip['mode_types'][0]['modeName']);
+                                  array_t.push(trip['mode_types'][1]['modeName']);
+                                }
+                                else if(trip['mode_types'].length==3)
+                                {
+                                  array_t.push(trip['mode_types'][0]['modeName']);
+                                  array_t.push(trip['mode_types'][2]['modeName']);
+                                  array_t.push(trip['mode_types'][1]['modeName']);
+                                }
+                                else if(trip['mode_types'].length>3)
+                                {
+                                  array_t.push(trip['mode_types'][0]['modeName']);
+                                  array_t.push(trip['mode_types'][trip['mode_types'].length-1]['modeName']);
+                                  let mode_types_subArray=[];
+                                  for(let x=1;x<trip['mode_types'].length-1;x++)
+                                  mode_types_subArray.push(trip['mode_types'][x]);
+                                  let main=getmMainMode(mode_types_subArray);
+                                  array_t.push(main);
                                 }
                                 data.push(array_t);
                             }

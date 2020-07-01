@@ -254,7 +254,7 @@ function download_png() {
                   fontWeight: "600",
                   fontSize: "18px",
                   textTransform: "none"
-                }} onClick={download_data}>Csv data</button>
+                }} onClick={download_data}>CSV data</button>
           <button className={buttonClasses.join(" ")}
           style={{
             fontWeight: "600",
@@ -283,7 +283,7 @@ function download_png() {
           fontWeight: "600",
           fontSize: "18px",
           textTransform: "none"
-        }} onClick={download_data}>Csv data</button>
+        }} onClick={download_data}>CSV data</button>
         <button className={buttonClasses.join(" ")}
         style={{
           fontWeight: "600",

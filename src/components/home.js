@@ -192,7 +192,7 @@ function Home(props) {
     }
   var  trip_list = [ 'originPlace', 
               'destinationPlace',  'fare', 'travelDistance',
-             'travelTime', 'access','egress','main'];
+             'travelTime', 'accessMode','mainMode','egressMode'];
              for(var i=0;i<trip_list.length;i++)
              headers.push(trip_list[i]);
              data.push(headers);
@@ -274,23 +274,29 @@ function Home(props) {
                                 // {
                                 //   array_t.push(trip['mode_types'][m]['modeName']);
                                 // }
-                                if(trip['mode_types'].length==1)
+                                if(trip['mode_types'].length===0) 
+                                {
+                                  array_t.push('unknown');
+                                  array_t.push('unknown');
+                                  array_t.push('unknown');
+                                }
+                                else if(trip['mode_types'].length===1)
                                 {
                                   array_t.push('Walk');
-                                  array_t.push(trip['mode_types'][0]['modeName']);
+                                  array_t.push(trip['mode_types'][0]['modeName']);//mainMode
                                   array_t.push('Walk');
                                 }
-                                else if(trip['mode_types'].length==2)
+                                else if(trip['mode_types'].length===2)
                                 {
                                   array_t.push(trip['mode_types'][0]['modeName']);
+                                  array_t.push(trip['mode_types'][1]['modeName']);//main
                                   array_t.push(trip['mode_types'][0]['modeName']);
-                                  array_t.push(trip['mode_types'][1]['modeName']);
                                 }
-                                else if(trip['mode_types'].length==3)
+                                else if(trip['mode_types'].length===3)
                                 {
                                   array_t.push(trip['mode_types'][0]['modeName']);
+                                  array_t.push(trip['mode_types'][1]['modeName']);//main
                                   array_t.push(trip['mode_types'][2]['modeName']);
-                                  array_t.push(trip['mode_types'][1]['modeName']);
                                 }
                                 else if(trip['mode_types'].length>3)
                                 {

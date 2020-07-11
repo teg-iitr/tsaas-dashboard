@@ -32,7 +32,7 @@ function FamilyChart(props) {
     continue;
    for(var j=0;j<survey[i].families.length;j++)
     {
-            var x=survey[i].families[j].members.length;
+            var x=survey[i].families[j]['noOfMembers'];
             x=x+'';
             //   if(x!=='0')
             // { 

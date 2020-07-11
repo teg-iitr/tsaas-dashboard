@@ -1,4 +1,3 @@
-
 import MapExplorerOrigin from './mapOrigin';
 import MapExplorerDestination from './mapdestination';
 import MapExplorerPermanentAddress from './map_permanentaddress';
@@ -7,6 +6,7 @@ import {MenuItem,InputLabel,Select} from '@material-ui/core'
 import {MAP_META} from '../constants';
 import {useState} from 'react';
 import React from 'react';
+import {mainMode} from './getMain_mode_method';
 // import React from 'react';
 // import classes from '../Buttons.css';
 import PivotTableUI from 'react-pivottable/PivotTableUI';
@@ -175,24 +175,9 @@ function Home(props) {
       if(key!=='trips' && key!=='created_at' && key!=='memberID')
       headers.push(key);
     });
-     function getmMainMode(mode_types_subArray)
-    {
-      var modes={};
-      for(let i=0;i<mode_types_subArray.length;i++)
-      {
-        if(!modes.hasOwnProperty(mode_types_subArray[i]['modeName']))
-        modes[mode_types_subArray[i]['modeName']]=0;
-        modes[mode_types_subArray[i]['modeName']]++;
-      }
-      if(modes.hasOwnProperty('PT') || modes.hasOwnProperty('Metro') || modes.hasOwnProperty('Bus'))
-      return 'PT';
-      else if(modes.hasOwnProperty('Carpool'))
-      return 'Carpool';
-      
-    }
   var  trip_list = [ 'originPlace', 
               'destinationPlace',  'fare', 'travelDistance',
-             'travelTime', 'accessMode','mainMode','egressMode'];
+              'accessMode','mainMode','egressMode'];
              for(var i=0;i<trip_list.length;i++)
              headers.push(trip_list[i]);
              data.push(headers);
@@ -267,13 +252,19 @@ function Home(props) {
                                   for(let ind=0;ind<Object.keys(od_k).length;ind++)
                                   {
                                     let od_k_keys=Object.keys(od_k)[ind];
-                                  if(od_k_keys!=='originDestinationID' && od_k_keys!=='originLandmark' && od_k_keys!=='originLat' && od_k_keys!=='originLng' && od_k_keys!=='destinationLandmark' && od_k_keys!=='destinationLat' && od_k_keys!=='destinationLng')
+                                  if(od_k_keys!=='originDestinationID' && od_k_keys!=='originLandmark' && od_k_keys!=='originLat' && od_k_keys!=='originLng' && od_k_keys!=='destinationLandmark' && od_k_keys!=='destinationLat' && od_k_keys!=='destinationLng' && od_k_keys!=='departureTime' && od_k_keys!=='arrivalTime')
                                   array_t.push(od_k[od_k_keys]);
                                 }
                                 // for(var m=0;m<trip['mode_types'].length;m++)
                                 // {
                                 //   array_t.push(trip['mode_types'][m]['modeName']);
                                 // }
+                                var modes={};
+                                for(let ind=0;ind<trip['mode_types'].length;ind++)
+                                {
+                                  modes[trip['mode_types'][ind]['modeIndex']]=trip['mode_types'][ind]['modeName'];
+                                }
+                                // console.log(modes);
                                 if(trip['mode_types'].length===0) 
                                 {
                                   array_t.push('unknown');
@@ -283,30 +274,38 @@ function Home(props) {
                                 else if(trip['mode_types'].length===1)
                                 {
                                   array_t.push('Walk');
-                                  array_t.push(trip['mode_types'][0]['modeName']);//mainMode
+                                  // array_t.push(trip['mode_types'][0]['modeName']);//mainMode 
+                                  array_t.push(modes[1]);
                                   array_t.push('Walk');
                                 }
                                 else if(trip['mode_types'].length===2)
                                 {
-                                  array_t.push(trip['mode_types'][0]['modeName']);
-                                  array_t.push(trip['mode_types'][1]['modeName']);//main
-                                  array_t.push(trip['mode_types'][0]['modeName']);
+                                  // array_t.push(trip['mode_types'][0]['modeName']);
+                                  // array_t.push(trip['mode_types'][1]['modeName']);//main
+                                  // array_t.push(trip['mode_types'][0]['modeName']);
+                                  array_t.push(modes[1]);
+                                  array_t.push(modes[2]);
+                                  array_t.push(modes[1]);
                                 }
                                 else if(trip['mode_types'].length===3)
                                 {
-                                  array_t.push(trip['mode_types'][0]['modeName']);
-                                  array_t.push(trip['mode_types'][1]['modeName']);//main
-                                  array_t.push(trip['mode_types'][2]['modeName']);
+                                  // array_t.push(trip['mode_types'][0]['modeName']);
+                                  // array_t.push(trip['mode_types'][1]['modeName']);//main
+                                  // array_t.push(trip['mode_types'][2]['modeName']);
+                                  array_t.push(modes[1]);
+                                  array_t.push(modes[2]);
+                                  array_t.push(modes[3]);
                                 }
                                 else if(trip['mode_types'].length>3)
                                 {
-                                  array_t.push(trip['mode_types'][0]['modeName']);
-                                  array_t.push(trip['mode_types'][trip['mode_types'].length-1]['modeName']);
+                                  array_t.push(modes[1]);
                                   let mode_types_subArray=[];
-                                  for(let x=1;x<trip['mode_types'].length-1;x++)
-                                  mode_types_subArray.push(trip['mode_types'][x]);
-                                  let main=getmMainMode(mode_types_subArray);
+                                  for(let x=2;x<trip['mode_types'].length;x++)
+                                  mode_types_subArray.push(modes[x]);
+                                  let main=mainMode(mode_types_subArray);
                                   array_t.push(main);
+                                  array_t.push(modes[trip['mode_types'].length]);
+                                  
                                 }
                                 data.push(array_t);
                             }

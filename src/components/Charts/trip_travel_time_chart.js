@@ -53,10 +53,39 @@ function TripTime(props) {
               //   destination[survey[i].families[j].members[k].trips[l].origin_destination[m].destinationPlace]=0;
               //   destination[survey[i].families[j].members[k].trips[l].origin_destination[m].destinationPlace]++;
               //   }
-              if(options.hasOwnProperty(survey[i].families[j].members[k].trips[l].origin_destination[m].travelTime))
-              options[survey[i].families[j].members[k].trips[l].origin_destination[m].travelTime].count++;
-              else
+              var start_time=survey[i].families[j].members[k].trips[l].origin_destination[m].departureTime;
+              var end_time=survey[i].families[j].members[k].trips[l].origin_destination[m].arrivalTime;
+              // console.log(start_time);console.log(end_time);
+              if(start_time===null || end_time===null)
               nulls++;
+              else
+              {
+                var hr,min;
+                hr=(start_time[0]+start_time[1]);
+                min=(start_time[3]+start_time[4]);
+                hr*=60;
+                min*=1;
+                start_time=hr+min;
+                hr=(end_time[0]+end_time[1]);
+                min=(end_time[3]+end_time[4]);
+                hr*=60;
+                min*=1;
+                end_time=hr+min;
+                // console.log(start_time);console.log(end_time);
+                var traveltime=end_time-start_time;
+                if(traveltime<0)
+                traveltime*=-1;
+                if(traveltime<5)
+                options['<5min'].count++;
+                else if(traveltime>5 && traveltime<15)
+                options['5-15min'].count++;
+                else if(traveltime>15 && traveltime<30)
+                options['15-30min'].count++;
+                else if(traveltime>30 && traveltime<60)
+                options['30-60min'].count++;
+                else
+                options['>1hour'].count++;
+              }
             }
         }
       }

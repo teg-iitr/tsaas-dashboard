@@ -34,7 +34,7 @@ function Auth(){
       'StartSurveyButton',
       'StartSurveyButtonBorder'
     ];  
-    console.log(buttonClasses);
+    // console.log(buttonClasses);
     function login(){
       
       number=prefix+number;
